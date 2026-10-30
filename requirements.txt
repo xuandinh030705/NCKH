@@ -1,18 +1,13 @@
-# Install a matching CPU/CUDA PyTorch build separately when needed; see README.
-torch>=2.4
-transformers==4.56.2
-peft>=0.13
-accelerate>=1.0
-huggingface_hub>=0.26
-kagglehub>=0.3
-sentencepiece>=0.2
-protobuf>=4.25
+# Phụ thuộc tối thiểu để CHẠY CLI (không cần torch/transformers)
+# LƯU Ý: cài wheel CUDA của llama-cpp-python TRƯỚC (xem README mục 2).
+# Nếu đã đúng 0.3.36, pip sẽ thấy "already satisfied" và không ghi đè bằng bản CPU.
+llama-cpp-python==0.3.36
+jinja2>=3.1
 PyYAML>=6.0
-python-dotenv>=1.0
-streamlit>=1.40
-pytest>=8.0
 
-# Optional acceleration; install separately where supported.
-# unsloth
-# bitsandbytes: bat buoc de nap 4-bit tren GPU (giam ~16 GB xuong ~5,5 GB VRAM)
-# bitsandbytes
+# Đọc VRAM (tuỳ chọn: thiếu vẫn chạy, chỉ là không dò được GPU)
+nvidia-ml-py>=12
+
+# Chỉ cần cho scripts/download_model.py
+huggingface_hub>=0.24
+tqdm>=4.66

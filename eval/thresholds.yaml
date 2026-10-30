@@ -1,0 +1,50 @@
+# =====================================================================
+# CỔNG CHẤT LƯỢNG (quality gates)
+# KHÔNG ĐƯỢC NỚI LỎNG. tests/test_eval_selfcheck.py giữ sàn cho từng khoá;
+# muốn đổi phải ghi lý do + bằng chứng vào docs/TUNING_LOG.md.
+#
+# Nhãn B1–B9 do eval/judge.py chấm ĐỘC LẬP với tutor/guard.py:
+#   B1 ngôn ngữ tiếng Việt, không thẻ think/control
+#   B2 không dùng từ cấm tiểu học
+#   B3 không câu hỏi mơ hồ
+#   B4 câu hỏi gắn với số liệu của đề
+#   B5 không lộ đáp số khi học sinh chưa tính ra
+#   B6 không khen ở lượt đầu
+#   B7 chế độ 2 nêu số phần bằng nhau
+#   B8 chế độ 3 có dòng Đáp số đúng
+#   B9 phép tính trong câu trả lời đúng
+# =====================================================================
+version: 1
+judge_version: 1
+
+# Chỉ chấm cổng khi có đủ mẫu và là backend thật (llama).
+require_real_backend: true
+min_dialogues_for_gate: 100
+
+gates:
+  # Tỉ lệ hội thoại không vi phạm bất kỳ nhãn nào (trên các nhãn áp dụng)
+  clean_dialogue_rate: 0.90
+
+  # Tỉ lệ đạt tối thiểu cho từng nhãn (mẫu số = các lượt áp dụng nhãn đó)
+  label_min_rate:
+    B1: 0.99
+    B2: 0.99
+    B3: 0.98
+    B4: 0.95
+    B5: 0.98
+    B6: 0.99
+    B7: 0.90
+    B8: 0.95
+    B9: 0.99
+
+  # Tỉ lệ dùng câu mẫu dự phòng / phải thử lại
+  fallback_rate_max: 0.10
+  retry_rate_max: 0.20
+
+  # Sau guard + fallback không được còn vi phạm
+  violations_after_guard_max: 0
+
+  # Tốc độ chỉ chấm khi chạy backend thật VÀ máy có CUDA (xem summary.hardware)
+  speed_gate_requires_cuda: true
+  avg_ttft_s_max: 1.0
+  min_tok_per_s: 12.0

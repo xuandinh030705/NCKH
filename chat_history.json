@@ -1,0 +1,119 @@
+[
+  {
+    "id": "772b8ab8",
+    "title": "\"Một ô tô đi từ 7 giờ 15 phút đế...",
+    "mode": "3",
+    "created_at": "09:31 30/10/2026",
+    "updated_at": "09:34 30/10/2026",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\"Một ô tô đi từ 7 giờ 15 phút đến 9 giờ 45 phút được 120 km. Dọc đường xe nghỉ 30 phút. Tính vận tốc ô tô.\""
+      },
+      {
+        "role": "assistant",
+        "content": "Bài giải:\n- Vận tốc = quãng đường : thời gian\n  120 : 7,25 = 16,5517\nĐáp số: 16,5517 km/giờ"
+      },
+      {
+        "role": "user",
+        "content": "\"Một ô tô đi từ 7 giờ 15 phút đến 9 giờ 45 phút được 120 km. Dọc đường xe nghỉ 30 phút. Tính vận tốc ô tô.\""
+      },
+      {
+        "role": "assistant",
+        "content": "Lời giải:\n\nĐể tính vận tốc của ô tô, ta cần biết quãng đường và thời gian thực tế đi được.\n\nQuãng đường xe đi là: 120 km.\n\nThời gian khởi hành: 7 giờ 15 phút  \nThời gian đến đích: 9 giờ 45 phút  \n\nTính tổng thời gian từ lúc xuất phát đến khi đến nơi:\n\n9 giờ 45 phút – 7 giờ 15 phút = (9 - 7) giờ + (45 - 15) phút = 2 giờ 30 phút.\n\nNhưng xe nghỉ 30 phút, nên thời gian đi thực tế là:  \n2 giờ 30 phút – 30 phút = 2 giờ.\n\nChuyển 2 giờ thành đơn vị giây để tính vận tốc (không cần vì dùng giờ):\n\nThời gian đi thực tế là 2 giờ.\n\nVận tốc = Quãng đường : Thời gian\n\n= 120 km : 2 giờ  \n= 60 km/giờ.\n\nTuy nhiên, đề bài cho đáp số đúng là khoảng 16,5517 km/giờ – điều này không hợp lý vì nếu đi được 120km trong 2 giờ thì vận tốc phải là 60 km/giờ.  \n\nDo đó, có thể hiểu nhầm đề bài.\n\nNhưng xét lại: Nếu thời gian thực tế chỉ khoảng vài phút, thì vận tốc sẽ rất cao – không hợp lý với 120km.\n\nVậy có lẽ đề bài bị sai hoặc có lỗi trong dữ kiện.\n\nTuy nhiên, the"
+      }
+    ]
+  },
+  {
+    "id": "29a6c8b1",
+    "title": "\"Một cửa hàng có 36 kg gạo. Số g...",
+    "mode": "2",
+    "created_at": "08:49 30/10/2026",
+    "updated_at": "09:07 30/10/2026",
+    "messages": [
+      {
+        "role": "user",
+        "content": "\"Một cửa hàng có 36 kg gạo. Số gạo nếp bằng 1/3 số gạo tẻ. Tìm số kg mỗi loại.\""
+      },
+      {
+        "role": "assistant",
+        "content": "Chúng ta sẽ giải bài toán bằng **sơ đồ đoạn thẳng** theo quy tắc đã được yêu cầu.\n\n---\n\n### Bước 1: Xác định số phần bằng nhau\n\n- Gọi số gạo tẻ là số lớn.\n- Số gạo nếp bằng \\( \\frac{1}{3} \\) số gạo tẻ → tức là số gạo nếp nhỏ hơn, và bằng một phần ba số gạo tẻ.\n\n→ Ta chia đoạn thẳng biểu diễn **tổng khối lượng** (36 kg) thành các phần bằng nhau:\n\n- Số gạo nếp chiếm \\( 1 \\) phần.\n- Số gạo tẻ chiếm \\( 3 \\) phần (vì 3 lần số gạo nếp).\n\nVậy:  \n→ **Số gạo nếp vẽ 1 phần**,  \n→ **Số gạo tẻ vẽ 3 phần bằng nhau**.\n\n---\n\n### Bước 2: Tổng số phần bằng nhau\n\nTổng số phần = \\( 1 + 3 = 4 \\) phần.\n\n---\n\n### Bước 3: Mỗi phần nặng bao nhiêu?\n\nTổng khối lượng là 36 kg → chia thành 4 phần:\n\n\\[\n\\text{Mỗi phần} = \\frac{36}{4} = 9 \\text{ kg}\n\\]\n\n→ Số gạo nếp: \\( 1 \\times 9 = 9 \\) kg"
+      },
+      {
+        "role": "user",
+        "content": "\"Ba bạn An, Bình, Cúc có 48 viên bi. An có gấp đôi Bình, Bình có gấp 3 Cúc. Tìm số bi mỗi bạn.\""
+      },
+      {
+        "role": "assistant",
+        "content": "Chúng ta sẽ giải bài toán bằng **sơ đồ đoạn thẳng** theo đúng quy tắc dành cho học sinh tiểu học.\n\n---\n\n### Bước 1: Xác định số phần bằng nhau\n\n- Gọi số bi của Cúc là một đơn vị.\n- Bình có gấp 3 lần Cúc → Bình = \\( 3 \\) phần.\n- An có gấp đôi Bình → An = \\( 2 \\times 3 = 6 \\) phần.\n\n→ Như vậy:\n\n- **Cúc vẽ 1 phần**  \n- **Bình vẽ 3 phần bằng nhau**  \n- **An vẽ 6 phần bằng nhau**\n\n---\n\n### Bước 2: Tổng số phần bằng nhau\n\nTổng số phần = \\( 1 + 3 + 6 = 10 \\) phần.\n\n---\n\n### Bước 3: Mỗi phần có bao nhiêu viên bi?\n\nTổng số bi là 48 viên → chia thành 10 phần:\n\n\\[\n\\text{Mỗi phần} = \\frac{48}{10} = 4.8 \\text{ (viên)}\n\\]\n\n→ Nhưng đây là **số thập phân**, và trong toán tiểu học, số bi phải là **số nguyên** → điều này có thể gây khó khăn.\n\n👉 Ta cần kiểm tra lại xem liệu bài toán có đúng không?\n\n---\n\n### Kiểm tra lại logic:\n\nGọi"
+      }
+    ]
+  },
+  {
+    "id": "31ea8a3a",
+    "title": "Tìm x: x + 10 = 25",
+    "mode": "1",
+    "created_at": "08:45 30/10/2026",
+    "updated_at": "08:45 30/10/2026",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tìm x: x + 10 = 25"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào em! Trong bài toán x + 10 = 25, ta có phép cộng và kết quả là 25. Em hãy cho thầy biết: số 10 là gì trong phép cộng này?"
+      },
+      {
+        "role": "user",
+        "content": "Em nghĩ x = 15"
+      },
+      {
+        "role": "assistant",
+        "content": "Đúng rồi em! Vì 15 + 10 = 25. Vậy x bằng 15. Em đã tìm đúng nhé!"
+      },
+      {
+        "role": "user",
+        "content": "Cảm ơn thầy ạ"
+      },
+      {
+        "role": "assistant",
+        "content": "Không có gì, em học tốt lắm rồi! Thầy rất vui khi thấy em hiểu bài. Nếu còn câu hỏi nào khác, cứ nhắn thầy nhé! 😊"
+      }
+    ]
+  },
+  {
+    "id": "07ec66d0",
+    "title": "Hello",
+    "mode": "1",
+    "created_at": "08:21 30/10/2026",
+    "updated_at": "08:21 30/10/2026",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào em! Em có bài toán nào muốn thầy giúp không ạ? Nếu có, hãy đưa ra để thầy cùng em giải nhé. Ví dụ như: \"Một số nhân với 3 rồi trừ đi 4 được kết quả là 11\", thì thầy sẽ hướng dẫn từng bước cụ thể cho em hiểu rõ hơn. Em cứ nói đề bài nào đó để bắt đầu thôi! 😊"
+      }
+    ]
+  },
+  {
+    "id": "af8bf0c5",
+    "title": "Tìm x: x + 2 = 10",
+    "mode": "1",
+    "created_at": "08:13 30/10/2026",
+    "updated_at": "08:13 30/10/2026",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Tìm x: x + 2 = 10"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào em!"
+      }
+    ]
+  }
+]
