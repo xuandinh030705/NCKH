@@ -1,15 +1,104 @@
+# =====================================================================
+# CẤU HÌNH CHATBOT GIA SƯ TOÁN TIỂU HỌC (terminal)
+# Mọi tham số lớn nằm ở đây. Không hard-code trong code.
+# Giá trị mặc định của phần `decode` TRÍCH từ reference/nckh-math.ipynb
+# (tests/test_parity.py sẽ fail nếu lệch).
+# =====================================================================
+
 model:
-  path: ./models/checkpoint-30
-  base_path: ./models/Qwen3-8B-unsloth-bnb-4bit
-  max_seq_len: 4096
-  load_in_4bit: true
-  device: auto
-  auto_download: true
+  # Đường dẫn tương đối tính từ thư mục chứa config.yaml
+  path: models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+  repo: unsloth/Qwen3-4B-Instruct-2507-GGUF
+  file: Qwen3-4B-Instruct-2507-Q4_K_M.gguf
+  # Dự phòng cho máy <= 3GB VRAM hoặc CPU-only (tải riêng, xem models/README.md)
+  fallback_models:
+    - models/Qwen3-1.7B-Q4_K_M.gguf
+    - models/Qwen3.5-2B-Q4_K_M.gguf
+  auto_fallback: true          # tự dùng model dự phòng nếu model chính không có
 
-generation:
-  top_p: 0.85
-  repetition_penalty: 1.15
-  temperature: 0.25
+  n_ctx: 2048                  # 2048 đủ cho system prompt + 6 lượt; tăng nếu cần
+  n_ctx_max: 3072
+  n_batch: 512
+  n_ubatch: 256
+  n_gpu_layers: auto           # auto | -1 (toàn bộ) | 0 (CPU)
+  n_threads: auto              # auto = số core vật lý
+  flash_attn: auto             # auto | true | false
+  kv_quant: auto               # auto | f16 | q8_0
+  use_mmap: true
+  use_mlock: false
+  gpu_buffer_gb: 0.55          # đệm CUDA + Windows
+  load_retries: 3              # số lần tự giảm n_gpu_layers khi OOM
+  seed: 42
 
-logging:
-  level: INFO
+engine:
+  backend: llama               # llama | mock
+  mock_behavior: auto          # auto | violating | english | think | leak | vague
+  warmup: true                 # chạy 1 lượt ngắn sau khi nạp để ổn định tốc độ
+  verbose: false
+
+decode:
+  temperature: 0.25            # [notebook]
+  top_p: 0.85                  # [notebook]
+  repetition_penalty: 1.15     # [notebook]
+  max_new_tokens_chat: 300     # [notebook] hội thoại đa lượt
+  max_new_tokens_single: 400   # [notebook] chạy lẻ
+  stop:
+    - "<|im_end|>"
+    - "<|endoftext|>"
+
+session:
+  max_history_turns: 6         # số lượt gần nhất giữ lại (3 cặp user/assistant)
+  max_retries: 2
+  retry_temp_boost: 0.1
+  max_question_marks: 2
+
+guard:
+  enabled: true
+  common:
+    forbid_think: true
+    forbid_english: true
+  mode1:
+    banned_words: ["phương trình", "hai vế", "chuyển vế", "đặt biến"]
+    praise_phrases:
+      - "khen em"
+      - "làm đúng"
+      - "đã tìm được"
+      - "đã hiểu rõ"
+    vague_phrases:
+      - "Em có thể làm như thế nào"
+      - "Em làm gì tiếp theo"
+      - "Em hãy làm cẩn thận"
+      - "đang làm gì ở đây"
+    require_number_from_problem: true
+    forbid_final_answer: true
+  mode2:
+    require_parts_mention: true
+  mode3:
+    require_answer_line: true
+    answer_line_pattern: "Đáp số"
+
+prompts:
+  # Chỉ được THÊM appendix, không sửa prompt gốc.
+  append_language_rule: true
+  append_rule_reminder: true
+  few_shot: false              # bật khi đo thấy tốt hơn (xem docs/TUNING_LOG.md)
+
+math:
+  hidden_hint: false           # ghi chú ẩn đáp số vào lượt user cuối (mặc định TẮT)
+  hidden_hint_template: "[GHI CHÚ ẨN - không nhắc lại với học sinh] Đáp số đúng: {answer}. Phép tính gần nhất của học sinh: {verdict}."
+
+eval:
+  n_dialogues: 100
+  seed: 1234
+  max_turns: 8
+  modes: ["1", "2", "3"]
+  grades: [2, 3, 4, 5]
+  judge:
+    language_min_ratio: 0.85   # tỉ lệ ký tự tiếng Việt tối thiểu
+    numeric_tolerance: 0.001
+  thresholds: eval/thresholds.yaml
+
+cli:
+  show_timing: true
+  history_file: ""             # rỗng = không lưu lịch sử ra đĩa
+  color: true

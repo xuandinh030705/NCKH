@@ -1,5 +1,0 @@
--r requirements.txt
-
-# Optional GPU acceleration; platform/CUDA compatibility is required.
-unsloth
-bitsandbytes

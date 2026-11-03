@@ -1,10 +1,31 @@
-.env
+# Trọng số model (tải bằng scripts/download_model.py)
+models/*.gguf
+models/*.bin
+models/*.safetensors
+models/*.pt
+models/.cache/
+.cache/
+
+# Môi trường ảo
 .venv/
 venv/
+env/
+
+# Python & Cache
 __pycache__/
 *.py[cod]
+*$py.class
+*.egg-info/
 .pytest_cache/
-.streamlit/
 unsloth_compiled_cache/
-models/**
-!models/.gitkeep
+
+# Log & runs
+eval/runs/
+*.log
+
+# Hệ điều hành / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
